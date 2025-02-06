@@ -7,24 +7,26 @@
                 </div>
                 <div id="text-routes" class="flex space-x-14 font-medium">
                         <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
-                                [routerLinkActiveOptions]="{ exact: true}" (click)="scrollToTop()">{{ t('home') }}</h1>
-                        <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold"
-                                (click)="scrollToTop()">
+                                [routerLinkActiveOptions]="{ exact: true}">{{ t('home') }}</h1>
+                        <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold">
                                 {{ t('about') }}</h1>
-                        <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold"
-                                (click)="scrollToTop()">
+                        <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold">
                                 {{ t('contact') }}</h1>
                 </div>
         </div>
 
         <div class="flex-1 flex justify-center items-center">
-                <app-logo routerLink="/" (click)="scrollToTop()"></app-logo>
+                <app-logo routerLink="/"></app-logo>
         </div>
         <div class="flex-1 flex flex-col justify-center space-y-5 items-end">
-                <app-main-button [buttontext]="t('try_now')" routerLink="/" (click)="scrollToTop()"></app-main-button>
+                <app-main-button [buttontext]="t('try_now')" routerLink="/"></app-main-button>
                 <div class="space-x-5">
-                        <ng-icon name="bootstrapLinkedin" size="20" class="cursor-pointer" />
-                        <ng-icon name="bootstrapGithub" size="20" class="cursor-pointer" />
+                        <a href="https://www.linkedin.com/in/daniel-contador-fraile-a721a5a6" target="_blank">
+                                <ng-icon name="bootstrapLinkedin" size="20" class="cursor-pointer"></ng-icon>
+                        </a>
+                        <a href="https://github.com/Daniel-C96" target="_blank">
+                                <ng-icon name="bootstrapGithub" size="20" class="cursor-pointer" />
+                        </a>
 
                 </div>
         </div>

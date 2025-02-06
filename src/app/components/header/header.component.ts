@@ -10,7 +10,5 @@ import { TranslocoDirective } from '@jsverse/transloco';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+
 }

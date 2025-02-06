@@ -7,4 +7,5 @@ export interface UserProfile {
         description: string;
         maxBudget: number;
         minBudget: number;
+        language: string;
 }

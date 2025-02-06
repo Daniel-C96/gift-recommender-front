@@ -9,16 +9,18 @@
 
         <!-- Display Gift Cards -->
         <div *ngFor="let gift of giftRecommendations"
-                class="gift-card border border-gray-300 dark:border-[#454545] rounded-lg shadow-lg p-4 space-y-4 bg-white dark:bg-[#333333] transition-all duration-300 hover:scale-105">
-                <div class="gift-image-container">
-                        <img [src]="gift.imageUrl" alt="{{ gift.name }}" class="w-full h-48 object-cover rounded-lg">
+                class="gift-card flex flex-row-reverse items-center border border-gray-300 dark:border-[#454545] rounded-lg shadow-lg p-6 space-x-6 bg-white dark:bg-[#333333] transition-all duration-300 hover:scale-105">
+
+                <!-- Imagen a la derecha -->
+                <div class="gift-image-container w-1/3">
+                        <img [src]="gift.imageUrl" alt="{{ gift.name }}" class="w-full h-auto object-cover rounded-lg">
                 </div>
 
-                <div class="gift-info">
+                <!-- Texto a la izquierda -->
+                <div class="gift-info w-2/3">
                         <h3 class="text-xl font-semibold">{{ gift.name }}</h3>
                         <p class="price text-[#6C63FF] font-bold">${{ gift.price.toFixed(2) }}</p>
-                        <p class="description text-sm text-[#555555] dark:text-[#CCCCCC]">{{ gift.description }}
-                        </p>
+                        <p class="description text-sm text-[#555555] dark:text-[#CCCCCC]">{{ gift.description }}</p>
                 </div>
         </div>
 </div>

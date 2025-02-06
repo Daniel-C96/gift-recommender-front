@@ -5,11 +5,11 @@
 
         <div id="text-routes" class="flex ml-auto space-x-14 font-medium items-center">
                 <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
-                        [routerLinkActiveOptions]="{ exact: true}" (click)="scrollToTop()">{{ t('home') }}</h1>
-                <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold" (click)="scrollToTop()">
+                        [routerLinkActiveOptions]="{ exact: true}">{{ t('home') }}</h1>
+                <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold">
                         {{ t('about') }}</h1>
-                <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold" (click)="scrollToTop()">
+                <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold">
                         {{ t('contact') }}</h1>
-                <app-main-button [buttontext]="t('try_now')" routerLink="/" (click)="scrollToTop()"></app-main-button>
+                <app-main-button [buttontext]="t('try_now')" routerLink="/"></app-main-button>
         </div>
 </header>

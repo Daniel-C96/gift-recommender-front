@@ -8,6 +8,8 @@ import { CommonModule, NgClass, NgFor } from '@angular/common';
 import { UserProfile } from '../../models/requests/user-profile';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslocoService } from '@jsverse/transloco';
+
 
 @Component({
   selector: 'app-form',
@@ -60,6 +62,12 @@ export class FormComponent {
   description: string = '';
   minBudget: number = null!;
   maxBudget: number = null!;
+  language: string = ''
+
+
+  constructor(private router: Router, private translocoService: TranslocoService) {
+    this.language = translocoService.getActiveLang()
+  }
 
   generateUserProfile(): UserProfile {
     const userProfile: UserProfile = {
@@ -70,17 +78,12 @@ export class FormComponent {
       hobbies: this.selectedHobbies,
       description: this.description,
       minBudget: this.minBudget,
-      maxBudget: this.maxBudget
+      maxBudget: this.maxBudget,
+      language: this.language
+
     };
     console.log(userProfile);
     return userProfile;
-  }
-
-  constructor(private router: Router) {
-  }
-
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   goToResults(): void {
@@ -88,6 +91,5 @@ export class FormComponent {
     this.router.navigate(['/results'], {
       state: { userProfile }
     });
-    this.scrollToTop()
   }
 }

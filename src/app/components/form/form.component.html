@@ -104,6 +104,8 @@
                         focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] resize-none"></textarea>
         </div>
 
-        <app-main-button class="flex justify-center pt-2" [buttontext]="t('generate_button')"
-                (click)="goToResults()"></app-main-button>
+        <div class="flex justify-center pt-2">
+                <app-main-button [buttontext]="t('generate_button')" (click)="goToResults()"></app-main-button>
+        </div>
+
 </div>
