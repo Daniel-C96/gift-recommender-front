@@ -1,13 +1,26 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>GiftRecommender</title>
+  <title>Gifty | Gift Recommender</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Default favicon (for browsers that don't support media queries in link tags) -->
+  <link rel="icon" href="logo-dark-mode.png" type="image/x-icon">
+
+  <!-- Light mode favicon -->
+  <link rel="icon" href="logo-light-mode.png" type="image/x-icon" media="(prefers-color-scheme: light)">
+
+  <!-- Dark mode favicon -->
+  <link rel="icon" href="logo-dark-mode.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

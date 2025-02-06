@@ -1,0 +1,61 @@
+<div class="text-center p-4">
+        <h1 class="text-3xl font-bold underline">{{ title }}</h1>
+
+        <!-- Formulario para ingresar datos -->
+        <form (ngSubmit)="getRecommendations()" class="mt-4 space-y-4 max-w-md mx-auto">
+                <div class="flex flex-col">
+                        <label for="age" class="font-medium">Edad:</label>
+                        <input type="number" id="age" [(ngModel)]="age" name="age" required
+                                class="border p-2 rounded" />
+                </div>
+
+                <div class="flex flex-col">
+                        <label for="gender" class="font-medium">Género:</label>
+                        <select id="gender" [(ngModel)]="gender" name="gender" required class="border p-2 rounded">
+                                <option value="male">Masculino</option>
+                                <option value="female">Femenino</option>
+                        </select>
+                </div>
+
+                <div class="flex flex-col">
+                        <label for="hobbies" class="font-medium">Hobbies (separados por coma):</label>
+                        <input type="text" id="hobbies" [(ngModel)]="hobbiesString" name="hobbies" required
+                                class="border p-2 rounded" />
+                </div>
+
+                <div class="flex flex-col">
+                        <label for="description" class="font-medium">Descripción:</label>
+                        <input type="text" id="description" [(ngModel)]="description" name="description" required
+                                class="border p-2 rounded" />
+                </div>
+
+                <div class="flex flex-col">
+                        <label for="minBudget" class="font-medium">Presupuesto mínimo:</label>
+                        <input type="number" id="minBudget" [(ngModel)]="minBudget" name="minBudget" required
+                                class="border p-2 rounded" />
+                </div>
+
+                <div class="flex flex-col">
+                        <label for="maxBudget" class="font-medium">Presupuesto máximo:</label>
+                        <input type="number" id="maxBudget" [(ngModel)]="maxBudget" name="maxBudget" required
+                                class="border p-2 rounded" />
+                </div>
+
+                <!-- Botón para enviar el perfil y obtener recomendaciones -->
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Obtener
+                        Recomendaciones</button>
+        </form>
+
+        <!-- Mostrar las recomendaciones -->
+        <div *ngIf="giftRecommendations.length > 0" class="mt-6">
+                <h2 class="text-xl font-semibold">Recomendaciones de Regalos:</h2>
+                <div *ngFor="let gift of giftRecommendations" class="flex flex-wrap justify-center gap-4 mt-4">
+                        <div class="border rounded p-4 text-center w-60 shadow-md">
+                                <img [src]="gift.imageUrl" alt="{{ gift.name }}" class="w-36 h-36 mx-auto object-cover">
+                                <h3 class="font-bold text-lg">{{ gift.name }}</h3>
+                                <p class="text-sm">{{ gift.description }}</p>
+                                <p class="font-semibold mt-2">Precio: ${{ gift.price }}</p>
+                        </div>
+                </div>
+        </div>
+</div>
