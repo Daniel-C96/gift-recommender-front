@@ -1,4 +1,4 @@
-<div id="main-container"
+<div id="main-container" *transloco="let t"
         class="h-[150px] w-full bg-white dark:bg-[#222222] text-[#111111] dark:text-white border-t dark:border-[#454545] border-[#D8D8D8] px-44 py-4 flex">
 
         <div class="flex-1 flex flex-col justify-center space-y-5">
@@ -6,17 +6,22 @@
                         <p class="cursor-pointer ">&#64;2025 Daniel Contador</p>
                 </div>
                 <div id="text-routes" class="flex space-x-14 font-medium">
-                        <h1 class="cursor-pointer">Home</h1>
-                        <h1 class="cursor-pointer">About</h1>
-                        <h1 class="cursor-pointer">Contact</h1>
+                        <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
+                                [routerLinkActiveOptions]="{ exact: true}" (click)="scrollToTop()">{{ t('home') }}</h1>
+                        <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold"
+                                (click)="scrollToTop()">
+                                {{ t('about') }}</h1>
+                        <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold"
+                                (click)="scrollToTop()">
+                                {{ t('contact') }}</h1>
                 </div>
         </div>
 
         <div class="flex-1 flex justify-center items-center">
-                <app-logo></app-logo>
+                <app-logo routerLink="/" (click)="scrollToTop()"></app-logo>
         </div>
         <div class="flex-1 flex flex-col justify-center space-y-5 items-end">
-                <app-main-button buttontext="Try now"></app-main-button>
+                <app-main-button [buttontext]="t('try_now')" routerLink="/" (click)="scrollToTop()"></app-main-button>
                 <div class="space-x-5">
                         <ng-icon name="bootstrapLinkedin" size="20" class="cursor-pointer" />
                         <ng-icon name="bootstrapGithub" size="20" class="cursor-pointer" />

@@ -1,0 +1,15 @@
+<div id="main-container"
+        class="w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex justify-center items-start relative">
+        <div *ngIf="loading" class="loading">
+                <p>Loading...</p>
+        </div>
+
+        <div *ngIf="errorMessage" class="error-message">
+                <p>{{ errorMessage }}</p>
+        </div>
+
+        <div *ngIf="!loading && !errorMessage" class="gift-recommendations">
+                <app-results-container class="w-1/2 z-10 relative"
+                        [giftRecommendations]="giftRecommendations"></app-results-container>
+        </div>
+</div>

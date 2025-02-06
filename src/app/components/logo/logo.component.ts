@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-logo',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './logo.component.html',
 })
 export class LogoComponent {
 
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

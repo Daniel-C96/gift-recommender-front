@@ -1,82 +1,109 @@
-<div id="main-container"
-        class="bg-white dark:bg-[#222222] text-[#111111] dark:text-white mt-5 mb-5 p-10 pb-10 rounded-[20px] space-y-5 shadow-sm">
+<div id="main-container" *transloco="let t"
+        class="bg-white dark:bg-[#222222] text-[#111111] dark:text-white mt-5 mb-5 p-10 pb-7 pt-7 rounded-[20px] space-y-6 shadow-sm">
         <div id="title" class="flex items-center space-x-1">
                 <ng-icon name="heroInformationCircle" size="30"></ng-icon>
-                <h1 class="text-2xl">Person's info</h1>
+                <h1 class="text-2xl">{{ t('person_info') }}</h1>
         </div>
 
-        <p>Enter the information of the person that is receiving the gift. All fields are optional, but the more
-                information you provide, the more accurate the gifts generated will be.</p>
+        <p>{{ t('info_text') }}</p>
 
         <div id="age-field" class="flex flex-col space-y-2">
-                <label for="age">What's their age?</label>
-                <input type="number" id="age" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-            focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
+                <label for="age">{{ t('age_label') }}</label>
+                <input type="number" id="age" [(ngModel)]="age" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
+                focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
         </div>
 
         <div id="gender-field" class="flex flex-col space-y-2">
-                <label for="gender">What's their gender?</label>
-                <select id="gender"
+                <label for="gender">{{ t('gender_label') }}</label>
+                <select id="gender" [(ngModel)]="gender"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-            focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] dark:bg-[#222222] dark:text-white">
-                        <option value="" selected disabled>Select gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] dark:bg-[#222222] dark:text-white">
+                        <option value="" selected disabled>{{ t('select_gender') }}</option>
+                        <option value="male">{{ t('male') }}</option>
+                        <option value="female">{{ t('female') }}</option>
                 </select>
         </div>
 
         <div id="occasion-field" class="flex flex-col space-y-2">
-                <label for="occasion">What's the occasion?</label>
-                <select id="occasion"
+                <label for="occasion">{{ t('occasion_label') }}</label>
+                <select id="occasion" [(ngModel)]="occasion"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-            focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] dark:bg-[#222222] dark:text-white">
-                        <option value="" selected disabled>Select occasion</option>
-                        <option value="birthday">Birthday</option>
-                        <option value="anniversary">Anniversary</option>
-                        <option value="holiday">Holiday</option>
-                        <option value="other">Other</option>
+                focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] dark:bg-[#222222] dark:text-white">
+                        <option value="" selected disabled>{{ t('select_occasion') }}</option>
+                        <option value="birthday">{{ t('birthday') }}</option>
+                        <option value="anniversary">{{ t('anniversary') }}</option>
+                        <option value="holiday">{{ t('holiday') }}</option>
+                        <option value="other">{{ t('other') }}</option>
                 </select>
         </div>
 
         <div id="recipient-field" class="flex flex-col space-y-2">
-                <label for="recipient">Who are you gifting to?</label>
-                <select id="recipient"
+                <label for="recipient">{{ t('recipient_label') }}</label>
+                <select id="recipient" [(ngModel)]="who"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-            focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] dark:bg-[#222222] dark:text-white">
-                        <option value="" selected disabled>Select recipient</option>
-                        <option value="friend">Friend</option>
-                        <option value="family">Family</option>
-                        <option value="partner">Partner</option>
-                        <option value="colleague">Colleague</option>
-                        <option value="other">Other</option>
+                focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] dark:bg-[#222222] dark:text-white">
+                        <option value="" selected disabled>{{ t('select_recipient') }}</option>
+                        <option value="friend">{{ t('friend') }}</option>
+                        <option value="family">{{ t('family') }}</option>
+                        <option value="partner">{{ t('partner') }}</option>
+                        <option value="colleague">{{ t('colleague') }}</option>
+                        <option value="other">{{ t('other') }}</option>
                 </select>
         </div>
+        <div id="hobbies-section" class="flex flex-col space-y-2">
+                <!-- Button to open/close -->
+                <div class="flex items-center space-x-2 cursor-pointer" (click)="toggleHobbies()">
+                        <label for="hobbies" class="cursor-pointer">{{ t('select_hobbies') }}</label>
+                        <ng-icon [name]="showHobbies ? 'heroArrowUp' : 'heroArrowDown'"></ng-icon>
+                </div>
 
-        <div>
-                <p>Select their hobbies</p>
+                <!-- Hobbies container -->
+                <div class="hobby-container grid grid-cols-5 gap-3 justify-between transition-all duration-500 overflow-hidden m-4"
+                        [ngClass]="showHobbies ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'">
+
+                        <div *ngFor="let hobby of hobbies" (click)="toggleSelection(hobby.name)"
+                                class="flex flex-col w-full text-center cursor-pointer transform transition-all duration-300 hover:scale-103 rounded-lg"
+                                [ngClass]="isSelected(hobby.name) ? 'bg-[#6C63FF] text-white' : 'bg-transparent'">
+
+                                <!-- Image -->
+                                <div
+                                        class="relative rounded-lg border dark:border-[#454545] border-[#D8D8D8] shadow-lg w-full h-[10vh] overflow-hidden">
+                                        <img [src]="hobby.imageUrl" [alt]="hobby.name"
+                                                class="w-full h-full object-cover blur-[0.1px]">
+                                </div>
+
+
+                                <!-- Name -->
+                                <div class="hobby-name text-[#111111] dark:text-white text-sm font-normal">
+                                        {{ t('hobbies.' + hobby.name) }}
+                                </div>
+                        </div>
+                </div>
         </div>
+
+
+
 
         <div id="budget-fields" class="flex">
                 <div class="flex flex-col space-y-2">
-                        <label for="budget-min">Minimum budget?</label>
-                        <input type="number" id="budget-min" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-                        focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
+                        <label for="budget-min">{{ t('minimum_budget') }}</label>
+                        <input type="number" id="budget-min" [(ngModel)]="minBudget" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm
+                            focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
                 </div>
                 <div class="flex flex-col space-y-2">
-                        <label for="budget-min">Maximum budget?</label>
-                        <input type="number" id="budget-max" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-                        focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
+                        <label for="budget-min">{{ t('maximum_budget') }}</label>
+                        <input type="number" id="budget-max" [(ngModel)]="maxBudget" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm
+                            focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
                 </div>
-
         </div>
 
         <div id="other-field" class="flex flex-col space-y-2">
-                <label for="other">Any other relevant information?</label>
-                <textarea maxlength="200" id="other" rows="3"
+                <label for="other">{{ t('other_info_label') }}</label>
+                <textarea maxlength="100" id="other" rows="3" [(ngModel)]="description"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
-                    focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] resize-none"></textarea>
+                        focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF] resize-none"></textarea>
         </div>
 
-
-        <app-main-button class="flex justify-center pt-5" buttontext="Generate"></app-main-button>
+        <app-main-button class="flex justify-center pt-2" [buttontext]="t('generate_button')"
+                (click)="goToResults()"></app-main-button>
 </div>
