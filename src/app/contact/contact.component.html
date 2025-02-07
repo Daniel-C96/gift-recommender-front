@@ -1,3 +1,34 @@
-<div class="h-200 w-full">
-        <p>contact works!</p>
+<div id="whole-page" *transloco="let t"
+        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex relative p-30 items-center">
+
+        <!-- Overlay layer to control the image opacity and position -->
+        <div
+                class="absolute inset-0 bg-[url(/computer-about.png)] bg-cover bg-no-repeat top-[-10%] left-[10%] z-0 opacity-90">
+        </div>
+
+        <div id="text-container"
+                class="flex w-1/2 min-h-1/2 bg-white dark:bg-[#222222] opacity-90 rounded-[20px] p-15 pt-45 pb-45 z-10 flex-col space-y-8 shadow-lg">
+
+                <!-- Contact Section -->
+                <div id="texts" class="opacity-100 space-y-5 text-center">
+                        <h1 class="text-3xl font-bold text-[#333] dark:text-white">
+                                {{t("contact")}}
+                        </h1>
+                        <p class="text-lg text-[#555] dark:text-gray-300">
+                                {{t("contact-text")}}
+                        </p>
+
+                        <!-- Social Icons Container -->
+                        <div class="flex justify-center space-x-6 mt-4">
+                                <a href="https://www.linkedin.com/in/daniel-contador-fraile-a721a5a6" target="_blank"
+                                        class="hover:scale-110 transition-transform duration-200">
+                                        <ng-icon name="bootstrapLinkedin" size="40" class="text-white"></ng-icon>
+                                </a>
+                                <a href="https://github.com/Daniel-C96" target="_blank"
+                                        class="hover:scale-110 transition-transform duration-200">
+                                        <ng-icon name="bootstrapGithub" size="40" class="text-white"></ng-icon>
+                                </a>
+                        </div>
+                </div>
+        </div>
 </div>

@@ -1,27 +1,42 @@
 <div id="main-container"
-        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex justify-center items-start relative">
-        <div *ngIf="loading" class="loading">
-                <p>Loading...</p>
+        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex relative">
+
+        <!-- Loading Animation -->
+        <div *ngIf="loading" class="w-full flex justify-center items-center min-h-screen">
+                <div class="flex space-x-3">
+                        <div class="w-4 h-4 bg-[#6C63FF] rounded-full animate-bounce"></div>
+                        <div class="w-4 h-4 bg-[#6C63FF] rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                        <div class="w-4 h-4 bg-[#6C63FF] rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                </div>
         </div>
 
-        <div *ngIf="errorMessage" class="error-message">
-                <p>{{ errorMessage }}</p>
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="w-full flex justify-center items-center min-h-screen">
+                <p class="text-red-500 text-xl">{{ errorMessage }}</p>
         </div>
 
-        <div *ngIf="!loading && !errorMessage" class="gift-recommendations">
-                <app-results-container class="w-1/2 z-10 relative"
-                        [giftRecommendations]="giftRecommendations"></app-results-container>
-
-                <!-- Right Image -->
-                <div class="absolute bottom-[-15px] right-[9vw] w-[25vw] h-auto">
-                        <img src="sin-fondo2.png" class="w-full h-full object-cover dark:hidden" />
-                        <img src="sin-fondo2-dark.png" class="w-full h-full object-cover hidden dark:block" />
+        <!-- Gift Recommendations -->
+        <div *ngIf="!loading && !errorMessage" class="gift-recommendations flex w-full">
+                <!-- Left Image -->
+                <div class="w-1/3 h-auto flex justify-end items-end">
+                        <div class="w-[110%] h-auto justify-start">
+                                <img src="sin-fondo1.png" class="w-full h-full object-cover dark:hidden" />
+                                <img src="sin-fondo1-dark.png" class="w-full h-full object-cover hidden dark:block" />
+                        </div>
                 </div>
 
-                <!-- Left Image -->
-                <div class="absolute bottom-[-10px] left-[2vw] w-[30vw] h-auto">
-                        <img src="sin-fondo1.png" class="w-full h-full object-cover dark:hidden" />
-                        <img src="sin-fondo1-dark.png" class="w-full h-full object-cover hidden dark:block" />
+                <!-- Form (Middle) -->
+                <div class="w-1/3 z-10">
+                        <app-results-container class="z-10" [giftRecommendations]="giftRecommendations">
+                        </app-results-container>
+                </div>
+
+                <!-- Right Image -->
+                <div class="w-1/3 h-auto flex justify-start items-end">
+                        <div class="w-[65%] h-auto justify-start">
+                                <img src="sin-fondo2.png" class="w-full h-full object-cover dark:hidden" />
+                                <img src="sin-fondo2-dark.png" class="w-full h-full object-cover hidden dark:block" />
+                        </div>
                 </div>
         </div>
 </div>

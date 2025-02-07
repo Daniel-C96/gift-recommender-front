@@ -1,16 +1,24 @@
-<div id="main-container"
-        class="w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex justify-center items-start relative">
-        <app-form class="w-1/2 z-10 relative"></app-form>
-
-        <!-- Right Image -->
-        <div class="absolute bottom-[-15px] right-[8vw] w-[25vw] h-auto">
-                <img src="sin-fondo2.png" class="w-full h-full object-cover dark:hidden" />
-                <img src="sin-fondo2-dark.png" class="w-full h-full object-cover hidden dark:block" />
-        </div>
+<div id="main-container" class="w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex relative">
 
         <!-- Left Image -->
-        <div class="absolute bottom-[-10px] left-[-2vw] w-[30vw] h-auto">
-                <img src="sin-fondo1.png" class="w-full h-full object-cover dark:hidden" />
-                <img src="sin-fondo1-dark.png" class="w-full h-full object-cover hidden dark:block" />
+        <div class="w-1/4 h-auto flex justify-end items-end">
+                <div class="w-[110%] h-auto">
+                        <img src="sin-fondo1.png" class="w-full h-full object-cover dark:hidden" />
+                        <img src="sin-fondo1-dark.png" class="w-full h-full object-cover hidden dark:block" />
+                </div>
         </div>
+
+        <!-- Form (Middle) -->
+        <div class="w-1/2 z-10 relative">
+                <app-form class="w-full"></app-form>
+        </div>
+
+        <!-- Right Image -->
+        <div class="w-1/4 h-auto flex justify-start items-end">
+                <div class="w-[65%] h-auto">
+                        <img src="sin-fondo2.png" class="w-full h-full object-cover dark:hidden" />
+                        <img src="sin-fondo2-dark.png" class="w-full h-full object-cover hidden dark:block" />
+                </div>
+        </div>
+
 </div>
