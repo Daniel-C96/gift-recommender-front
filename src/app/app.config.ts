@@ -5,6 +5,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideTranslocoLocale } from '@jsverse/transloco-locale'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,5 +29,13 @@ export const appConfig: ApplicationConfig = {
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader
-    })]
+    }),
+    provideTranslocoLocale({
+      langToLocaleMapping: {
+        en: 'en-US',
+        es: 'es-ES',
+        ca: 'es-ES'
+      }
+    })
+  ]
 };
