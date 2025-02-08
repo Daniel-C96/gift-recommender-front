@@ -15,6 +15,7 @@ export class ApiService {
 
   //Method to send the userProfile object to the backend
   sendUserProfile(userProfile: UserProfile): Observable<any> {
+    console.log(this.apiUrl)
     return this.http.post<any>(this.apiUrl + `request`, userProfile);
   }
 }
