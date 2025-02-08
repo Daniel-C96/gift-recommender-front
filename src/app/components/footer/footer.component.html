@@ -3,7 +3,7 @@
 
         <!-- Left Section (Copyright) -->
         <div
-                class="flex flex-col justify-center items-center md:items-start space-y-2 md:space-y-0 order-last md:order-none mt-2">
+                class="flex flex-col justify-center items-center md:items-start gap-y-2 md:gap-y-0 order-last md:order-none mt-2">
                 <a href="https://www.linkedin.com/in/daniel-contador-fraile-a721a5a6" target="_blank">
                         <p class="cursor-pointer text-sm">&copy; 2025 Daniel Contador</p>
                 </a>
@@ -16,10 +16,10 @@
         </div>
 
         <!-- Right Section (Menu and Social Icons) -->
-        <div class="flex flex-col justify-center items-center md:items-end space-y-3 md:space-y-0 md:w-auto">
+        <div class="flex flex-col justify-center items-center md:items-end gap-y-3 md:gap-y-0 md:w-auto">
                 <!-- Menu links for mobile and larger screens -->
                 <div id="text-routes"
-                        class="flex flex-col sm:flex-row sm:space-x-5 lg:space-x-14 font-medium items-center sm:items-end space-y-3 sm:space-y-0">
+                        class="flex flex-col sm:flex-row sm:gap-x-5 lg:gap-x-14 font-medium items-center sm:items-end gap-y-3 sm:gap-y-0">
                         <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
                                 [routerLinkActiveOptions]="{ exact: true}">{{ t('home') }}</h1>
                         <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold">{{ t('about') }}
@@ -29,7 +29,7 @@
                 </div>
 
                 <!-- Social icons (LinkedIn, GitHub) -->
-                <div class="flex space-x-5">
+                <div class="flex gap-x-5">
                         <a href="https://www.linkedin.com/in/daniel-contador-fraile-a721a5a6" target="_blank">
                                 <ng-icon name="bootstrapLinkedin" size="20" class="cursor-pointer"></ng-icon>
                         </a>

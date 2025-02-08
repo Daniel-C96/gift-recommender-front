@@ -20,7 +20,7 @@
 
         <!-- Menu for small screens -->
         <div *ngIf="isMenuOpen"
-                class="absolute top-full left-0 w-full bg-[#CDCDCD] dark:bg-[#292929] border-t-1 border-b-1 dark:border-[#454545] border-[#D8D8D8] shadow-md md:hidden transition-all duration-300">
+                class="absolute top-full left-0 w-full bg-white dark:bg-[#292929] border-t-1 border-b-1 dark:border-[#454545] border-[#D8D8D8] shadow-md md:hidden transition-all duration-300">
                 <div class="flex flex-col items-center py-4 gap-y-4">
                         <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold" (click)="closeMenu()">
                                 {{ t('home') }}
