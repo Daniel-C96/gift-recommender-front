@@ -1,9 +1,9 @@
-<header id="main-container" *transloco="let t" class="h-[60px] w-full bg-white dark:bg-[#222222] text-[#111111] dark:text-white flex items-center px-44 py-4
-        sticky top-0 z-50 border-b-1 dark:border-[#454545] border-[#D8D8D8]">
-
+<header id="main-container" *transloco="let t" class="h-[60px] w-full bg-white dark:bg-[#222222] text-[#111111] dark:text-white flex items-center px-12 md:px-20 lg:px-36 xl:px-44 py-4
+    sticky top-0 z-50 border-b-1 dark:border-[#454545] border-[#D8D8D8] justify-between">
         <app-logo></app-logo>
 
-        <div id="text-routes" class="flex ml-auto space-x-14 font-medium items-center">
+        <!-- Menu for big screens -->
+        <div id="text-routes" class="hidden md:flex ml-auto space-x-5 lg:space-x-14 font-medium items-center">
                 <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
                         [routerLinkActiveOptions]="{ exact: true}">{{ t('home') }}</h1>
                 <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold">
@@ -11,5 +11,30 @@
                 <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold">
                         {{ t('contact') }}</h1>
                 <app-main-button [buttontext]="t('try_now')" routerLink="/"></app-main-button>
+        </div>
+
+        <!-- Hambuguer button for small screens -->
+        <button id="hambuguer-button" class="md:hidden flex items-center cursor-pointer" (click)="toggleMenu()">
+                <ng-icon name=" ionMenu" size="35"></ng-icon>
+        </button>
+
+        <!-- Menu for small screens -->
+        <div *ngIf="isMenuOpen"
+                class="absolute top-full left-0 w-full bg-[#CDCDCD] dark:bg-[#292929] border-t-1 border-b-1 dark:border-[#454545] border-[#D8D8D8] shadow-md md:hidden transition-all duration-300">
+                <div class="flex flex-col items-center py-4 space-y-4">
+                        <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold" (click)="closeMenu()">
+                                {{ t('home') }}
+                        </h1>
+                        <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold"
+                                (click)="closeMenu()">
+                                {{ t('about') }}
+                        </h1>
+                        <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold"
+                                (click)="closeMenu()">
+                                {{ t('contact') }}
+                        </h1>
+                        <app-main-button [buttontext]="t('try_now')" routerLink="/"
+                                (click)="closeMenu()"></app-main-button>
+                </div>
         </div>
 </header>

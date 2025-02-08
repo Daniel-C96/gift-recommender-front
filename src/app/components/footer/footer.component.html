@@ -1,34 +1,41 @@
-<div id="main-container" *transloco="let t"
-        class="h-[150px] w-full bg-white dark:bg-[#222222] text-[#111111] dark:text-white border-t dark:border-[#454545] border-[#D8D8D8] px-44 py-4 flex">
+<div id="footer-container" *transloco="let t"
+        class="w-full bg-white dark:bg-[#222222] text-[#111111] dark:text-white border-t dark:border-[#454545] border-[#D8D8D8] px-12 sm:px-20 lg:px-36 xl:px-44 py-6 flex flex-col md:flex-row justify-between items-center relative">
 
-        <div class="flex-1 flex flex-col justify-center space-y-5">
-                <div class="flex">
-                        <p class="cursor-pointer ">&#64;2025 Daniel Contador</p>
-                </div>
-                <div id="text-routes" class="flex space-x-14 font-medium">
-                        <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
-                                [routerLinkActiveOptions]="{ exact: true}">{{ t('home') }}</h1>
-                        <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold">
-                                {{ t('about') }}</h1>
-                        <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold">
-                                {{ t('contact') }}</h1>
-                </div>
+        <!-- Left Section (Copyright) -->
+        <div
+                class="flex flex-col justify-center items-center md:items-start space-y-2 md:space-y-0 order-last md:order-none mt-2">
+                <a href="https://www.linkedin.com/in/daniel-contador-fraile-a721a5a6" target="_blank">
+                        <p class="cursor-pointer text-sm">&copy; 2025 Daniel Contador</p>
+                </a>
         </div>
 
-        <div class="flex-1 flex justify-center items-center">
+        <!-- Center Section (Logo) -->
+        <div
+                class="flex justify-center items-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 w-full">
                 <app-logo routerLink="/"></app-logo>
         </div>
-        <div class="flex-1 flex flex-col justify-center space-y-5 items-end">
-                <app-main-button [buttontext]="t('try_now')" routerLink="/"></app-main-button>
-                <div class="space-x-5">
+
+        <!-- Right Section (Menu and Social Icons) -->
+        <div class="flex flex-col justify-center items-center md:items-end space-y-3 md:space-y-0 md:w-auto">
+                <!-- Menu links for mobile and larger screens -->
+                <div id="text-routes"
+                        class="flex flex-col sm:flex-row sm:space-x-5 lg:space-x-14 font-medium items-center sm:items-end space-y-3 sm:space-y-0">
+                        <h1 class="cursor-pointer" routerLink="/" routerLinkActive="font-bold"
+                                [routerLinkActiveOptions]="{ exact: true}">{{ t('home') }}</h1>
+                        <h1 class="cursor-pointer" routerLink="/about" routerLinkActive="font-bold">{{ t('about') }}
+                        </h1>
+                        <h1 class="cursor-pointer" routerLink="/contact" routerLinkActive="font-bold">{{ t('contact') }}
+                        </h1>
+                </div>
+
+                <!-- Social icons (LinkedIn, GitHub) -->
+                <div class="flex space-x-5">
                         <a href="https://www.linkedin.com/in/daniel-contador-fraile-a721a5a6" target="_blank">
                                 <ng-icon name="bootstrapLinkedin" size="20" class="cursor-pointer"></ng-icon>
                         </a>
                         <a href="https://github.com/Daniel-C96" target="_blank">
-                                <ng-icon name="bootstrapGithub" size="20" class="cursor-pointer" />
+                                <ng-icon name="bootstrapGithub" size="20" class="cursor-pointer"></ng-icon>
                         </a>
-
                 </div>
         </div>
-
 </div>

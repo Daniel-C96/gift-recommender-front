@@ -1,5 +1,5 @@
 <div id="whole-page" *transloco="let t"
-        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex relative p-30 items-center">
+        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex relative px-10 py-45">
 
         <!-- Overlay layer to control the image opacity and position -->
         <div
@@ -7,15 +7,16 @@
         </div>
 
         <div id="text-container"
-                class="flex w-1/2 min-h-1/2 bg-white dark:bg-[#222222] opacity-90 rounded-[20px] p-15 pt-45 pb-45 z-10 flex-col space-y-8 shadow-sm">
+                class="flex w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white dark:bg-[#222222] opacity-90 rounded-[20px] p-5 py-10 justify-center z-10 flex-col space-y-8 shadow-lg lg:absolute lg:left-10">
                 <!-- Ensure the text has 100% opacity -->
                 <div id="texts" class="opacity-100 space-y-3">
                         <h1 class="text-3xl font-semibold">{{t("about")}}</h1>
                         <p class="text-base"> {{t("about-text")}}</p>
                 </div>
-                <div class="flex justify-end">
-                        <app-main-button [buttontext]="t('try_now')" routerLink="/"></app-main-button>
 
+                <!-- Button for "try now" -->
+                <div class="flex justify-center">
+                        <app-main-button [buttontext]="t('try_now')" routerLink="/"></app-main-button>
                 </div>
         </div>
 </div>

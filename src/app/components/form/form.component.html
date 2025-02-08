@@ -1,5 +1,5 @@
 <div id="main-container" *transloco="let t"
-        class="bg-white dark:bg-[#222222] text-[#111111] dark:text-white mt-5 mb-5 p-10 pb-7 pt-7 rounded-[20px] space-y-6 shadow-sm">
+        class="bg-white dark:bg-[#222222] text-[#111111] dark:text-white my-5 px-5 sm-px-10 py-7 rounded-[20px] space-y-6 shadow-sm">
         <div id="title" class="flex items-center space-x-1">
                 <ng-icon name="heroInformationCircle" size="30"></ng-icon>
                 <h1 class="text-2xl">{{ t('person_info') }}</h1>
@@ -58,8 +58,8 @@
                 </div>
 
                 <!-- Hobbies container -->
-                <div class="hobby-container grid grid-cols-5 gap-3 justify-between transition-all duration-500 overflow-hidden m-4"
-                        [ngClass]="showHobbies ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'">
+                <div class="hobby-container grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 justify-between transition-all duration-500 overflow-hidden m-4"
+                        [ngClass]="showHobbies ? 'opacity-100' : 'max-h-0 opacity-0'">
 
                         <div *ngFor="let hobby of hobbies" (click)="toggleSelection(hobby.name)"
                                 class="flex flex-col w-full text-center cursor-pointer transform transition-all duration-300 hover:scale-103 rounded-lg"
@@ -67,11 +67,10 @@
 
                                 <!-- Image -->
                                 <div
-                                        class="relative rounded-lg border dark:border-[#454545] border-[#D8D8D8] shadow-lg w-full h-[10vh] overflow-hidden">
+                                        class="relative rounded-lg border dark:border-[#454545] border-[#D8D8D8] shadow-lg w-full h-[10vh] sm:h-[12vh] xl:h-[10vh] overflow-hidden">
                                         <img [src]="hobby.imageUrl" [alt]="hobby.name"
                                                 class="w-full h-full object-cover blur-[0.1px]">
                                 </div>
-
 
                                 <!-- Name -->
                                 <div class="hobby-name text-[#111111] dark:text-white text-sm font-normal">
@@ -79,12 +78,13 @@
                                 </div>
                         </div>
                 </div>
+
         </div>
 
 
 
 
-        <div id="budget-fields" class="flex">
+        <div id="budget-fields" class="flex flex-col space-y-2 sm:space-y-0 sm:flex-row">
                 <div class="flex flex-col space-y-2">
                         <label for="budget-min">{{ t('minimum_budget') }}</label>
                         <input type="number" id="budget-min" [(ngModel)]="minBudget" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm

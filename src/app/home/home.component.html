@@ -1,24 +1,32 @@
-<div id="main-container" class="w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white flex relative">
+<!-- Big screen -->
+<div id="main-container" class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white 
+    hidden lg:flex relative">
 
         <!-- Left Image -->
-        <div class="w-1/4 h-auto flex justify-end items-end">
+        <div class="w-[22%] xl:w-1/4 h-auto flex justify-end items-end">
                 <div class="w-[110%] h-auto">
                         <img src="sin-fondo1.png" class="w-full h-full object-cover dark:hidden" />
                         <img src="sin-fondo1-dark.png" class="w-full h-full object-cover hidden dark:block" />
                 </div>
         </div>
 
-        <!-- Form (Middle) -->
-        <div class="w-1/2 z-10 relative">
+        <!-- Center Form -->
+        <div class="w-full xl:w-1/2 z-10 relative">
                 <app-form class="w-full"></app-form>
         </div>
 
         <!-- Right Image -->
-        <div class="w-1/4 h-auto flex justify-start items-end">
+        <div class="w-[22%] xl:w-1/4 h-auto flex justify-start items-end">
                 <div class="w-[65%] h-auto">
                         <img src="sin-fondo2.png" class="w-full h-full object-cover dark:hidden" />
                         <img src="sin-fondo2-dark.png" class="w-full h-full object-cover hidden dark:block" />
                 </div>
         </div>
 
+</div>
+
+<!-- Mobile version -->
+<div
+        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#111111] dark:text-white lg:hidden flex justify-center">
+        <app-form class="w-[90%] sm:w-[80%]"></app-form>
 </div>

@@ -8,7 +8,4 @@ import { RouterLink } from '@angular/router';
 })
 export class LogoComponent {
 
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 }
