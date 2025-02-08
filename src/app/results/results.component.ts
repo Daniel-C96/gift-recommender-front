@@ -42,47 +42,11 @@ export class ResultsComponent implements OnInit {
       (error) => {
         console.error('Error obtaining data', error);
         this.errorMessage = 'Error obtaining recommendations. Please try again later.';
+
       },
       () => {
         this.loading = false;
       }
     );
-
-    // Hardcode gift recommendations for testing purposes
-    // this.giftRecommendations = [
-    //   {
-    //     name: "Wireless Bluetooth Headphones",
-    //     price: 80.0,
-    //     description: "Enjoy high-quality audio while working out or commuting.",
-    //     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy6wb-QeG26szfKEQ0vYbacMrq_t0WOEjv1Q&s"
-    //   },
-    //   {
-    //     name: "Fitness Tracker",
-    //     price: 50.0,
-    //     description: "Monitor your fitness progress and stay motivated.",
-    //     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy6wb-QeG26szfKEQ0vYbacMrq_t0WOEjv1Q&s"
-    //   },
-    //   {
-    //     name: "Sports Water Bottle",
-    //     price: 25.0,
-    //     description: "Stay hydrated during sports activities.",
-    //     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy6wb-QeG26szfKEQ0vYbacMrq_t0WOEjv1Q&s"
-    //   },
-    //   {
-    //     name: "Gym Membership",
-    //     price: 40.0,
-    //     description: "Access to various fitness equipment and classes.",
-    //     imageUrl: "no-more-requests.png"
-    //   },
-    //   {
-    //     name: "Portable Bluetooth Speaker",
-    //     price: 60.0,
-    //     description: "Enjoy your favorite music anytime, anywhere.",
-    //     imageUrl: "no-more-requests.png"
-    //   }
-    // ];
-    // this.loading = false;
-
-
   }
 }
