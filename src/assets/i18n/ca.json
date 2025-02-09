@@ -46,5 +46,9 @@
         },
         "about-text": "Aquest projecte és un generador d'idees per a regals dissenyat per ajudar els usuaris a trobar el regal perfecte. No obstant això, també és una peça de portafoli creada per a l'aprenentatge i l'experimentació. Integra IA (Gemini) per oferir recomanacions personalitzades de regals i utilitza l'API de cerca personalitzada de Google per obtenir imatges rellevants. El backend està desenvolupat amb Spring Boot, gestionant les sol·licituds a les API i la comunicació eficient entre els serveis.",
         "contact-text": "Connectem! Em pots trobar a LinkedIn i GitHub.",
-        "gift-recommendations-title": "Regals generats"
+        "gift-recommendations-title": "Regals generats",
+        "age-negative-error": "L'edat introduïda és negativa",
+        "budget-min-negative-error": "El pressupost mínim és negatiu",
+        "budget-max-negative-error": "El pressupost màxim és negatiu",
+        "budget-max-smaller-error": "El pressupost màxim és menor que el mínim"
 }

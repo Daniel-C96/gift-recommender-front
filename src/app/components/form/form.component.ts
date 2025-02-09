@@ -87,9 +87,40 @@ export class FormComponent {
   }
 
   goToResults(): void {
+    if (this.isAgeNegative) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (this.areBudgetFieldsInvalid()) {
+      return;
+    }
+
+    // If everything is valid, continue
     const userProfile = this.generateUserProfile();
     this.router.navigate(['/results'], {
       state: { userProfile }
     });
   }
+
+  areBudgetFieldsInvalid(): boolean {
+    return this.isMinBudgetNegative || this.isMaxBudgetNegative || this.isMaxBudgetSmallerThanMin;
+  }
+
+  get isAgeNegative(): boolean {
+    return this.age < 0;
+  }
+
+  get isMinBudgetNegative(): boolean {
+    return this.minBudget < 0;
+  }
+
+  get isMaxBudgetNegative(): boolean {
+    return this.maxBudget < 0;
+  }
+
+  get isMaxBudgetSmallerThanMin(): boolean {
+    return this.maxBudget !== null && this.maxBudget < this.minBudget;
+  }
+
 }

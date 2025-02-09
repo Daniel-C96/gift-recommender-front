@@ -8,7 +8,13 @@
         <p>{{ t('info_text') }}</p>
 
         <div id="age-field" class="flex flex-col gap-y-2">
-                <label for="age">{{ t('age_label') }}</label>
+                <div class="flex flex-col sm:flex-row gap-x-3">
+                        <label for="age">{{ t('age_label') }}</label>
+                        <h1 id="age-error" class="text-red-500 dark:text-red-450"
+                                [ngClass]="{ 'hidden': !isAgeNegative }">
+                                {{ t('age-negative-error') }}
+                        </h1>
+                </div>
                 <input type="number" min="0" id="age" [(ngModel)]="age" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm
                 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
         </div>
@@ -81,14 +87,27 @@
 
         </div>
 
-        <div id="budget-fields" class="flex flex-col gap-y-2 sm:gap-y-0 sm:flex-row">
+        <div id="budget-fields" class="flex flex-col gap-y-2 sm:gap-y-0 sm:flex-row sm:gap-x-8">
                 <div class="flex flex-col gap-y-2">
                         <label for="budget-min">{{ t('minimum_budget') }}</label>
+                        <h1 id="budget-min-negative-error" class="text-red-500 dark:text-red-450"
+                                [ngClass]="{ 'hidden': !isMinBudgetNegative }">
+                                {{ t('budget-min-negative-error') }}
+                        </h1>
                         <input type="number" min="0" id="budget-min" [(ngModel)]="minBudget" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm
                             focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
                 </div>
                 <div class="flex flex-col gap-y-2">
-                        <label for="budget-min">{{ t('maximum_budget') }}</label>
+                        <label for="budget-max">{{ t('maximum_budget') }}</label>
+                        <h1 id="budget-max-negative-error" class="text-red-500 dark:text-red-450"
+                                [ngClass]="{ 'hidden': !isMaxBudgetNegative }">
+                                {{ t('budget-max-negative-error') }}
+                        </h1>
+                        <h1 id="budget-max-smaller-error" class="text-red-500 dark:text-red-450"
+                                [ngClass]="{ 'hidden': isMaxBudgetNegative || !isMaxBudgetSmallerThanMin }">
+                                {{ t('budget-max-smaller-error') }}
+                        </h1>
+
                         <input type="number" min="0" id="budget-max" [(ngModel)]="maxBudget" class="w-1/2 px-4 py-3 border border-gray-300 rounded-lg shadow-sm
                             focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-[#6C63FF]">
                 </div>

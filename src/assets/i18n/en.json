@@ -46,5 +46,9 @@
         },
         "about-text": "This project is a gift idea generator designed to help users find the perfect present. However, it's also a portfolio piece created for learning and experimentation. It integrates AI (Gemini) to provide personalized gift recommendations and uses Google's Custom Search API to fetch relevant images. The backend is built with Spring Boot, handling API requests and managing the communication between services efficiently.",
         "contact-text": "Let's connect! You can find me on LinkedIn and GitHub.",
-        "gift-recommendations-title": "Gifts generated"
+        "gift-recommendations-title": "Gifts generated",
+        "age-negative-error": "The age entered is negative",
+        "budget-min-negative-error": "The minimum budget is negative",
+        "budget-max-negative-error": "The maximum budget is negative",
+        "budget-max-smaller-error": "The maximum budget is smaller than the minimum"
 }

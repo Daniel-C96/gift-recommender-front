@@ -46,5 +46,8 @@
         },
         "about-text": "Este proyecto es un generador de ideas para regalos diseñado para ayudar a los usuarios a encontrar el obsequio perfecto. Sin embargo, también es una pieza de portafolio creada para el aprendizaje y la experimentación. Integra IA (Gemini) para ofrecer recomendaciones personalizadas de regalos y utiliza la API de búsqueda personalizada de Google para obtener imágenes relevantes. El backend está desarrollado con Spring Boot, gestionando las solicitudes a las API y la comunicación eficiente entre los servicios.",
         "contact-text": "Conectemos, encuéntrame en LinkedIn y GitHub.",
-        "gift-recommendations-title": "Regalos generados"
+        "age-negative-error": "La edad ingresada es negativa",
+        "budget-min-negative-error": "El presupuesto mínimo es negativo",
+        "budget-max-negative-error": "El presupuesto máximo es negativo",
+        "budget-max-smaller-error": "El presupuesto máximo es menor que el mínimo"
 }
