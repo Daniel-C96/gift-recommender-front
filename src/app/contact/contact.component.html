@@ -1,16 +1,16 @@
 <div id="whole-page" *transloco="let t"
-        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#373737] dark:text-white flex relative px-10 py-45">
+        class="min-h-screen w-full bg-[#F3F3F3] dark:bg-[#2F2F2F] text-[#373737] dark:text-white flex relative px-5 sm:px-10 items-center justify-center">
 
         <!-- Overlay layer to control the image opacity and position -->
         <div
                 class="absolute inset-0 bg-[url(/computer-about.png)] bg-cover bg-no-repeat top-[-10%] left-[10%] z-0 opacity-90">
         </div>
 
-        <div id="text-container"
-                class="flex w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white dark:bg-[#222222] opacity-90 rounded-[20px] p-5 justify-center z-10 flex-col gap-y-8 shadow-lg lg:absolute lg:left-10 min-h-[60vh]">
+        <div id="text-container" class="flex w-full bg-white dark:bg-[#222222] opacity-90 rounded-[20px] p-5 justify-center 
+                z-10 flex-col gap-y-8 md:w-4/5 lg:w-3/5 xl:w-2/5 py-20 shadow-lg">
 
                 <!-- Contact Section -->
-                <div id="texts" class="opacity-100 gap-y-5 text-center">
+                <div id="texts" class="flex flex-col opacity-100 gap-y-5 text-center">
                         <h1 class="text-3xl font-semibold text-[#333] dark:text-white">
                                 {{t("contact")}}
                         </h1>
