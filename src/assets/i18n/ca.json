@@ -50,5 +50,7 @@
         "age-negative-error": "L'edat introduïda és negativa",
         "budget-min-negative-error": "El pressupost mínim és negatiu",
         "budget-max-negative-error": "El pressupost màxim és negatiu",
-        "budget-max-smaller-error": "El pressupost màxim és menor que el mínim"
+        "budget-max-smaller-error": "El pressupost màxim és menor que el mínim",
+        "budget-not-valid-error": "El pressupost not pot ser mes gran de 100.000.000",
+        "age-valid-error": "L'edat no pot ser més gran de 150"
 }

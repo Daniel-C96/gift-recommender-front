@@ -50,5 +50,7 @@
         "age-negative-error": "La edad ingresada es negativa",
         "budget-min-negative-error": "El presupuesto mínimo es negativo",
         "budget-max-negative-error": "El presupuesto máximo es negativo",
-        "budget-max-smaller-error": "El presupuesto máximo es menor que el mínimo"
+        "budget-max-smaller-error": "El presupuesto máximo es menor que el mínimo",
+        "budget-not-valid-error": "El presupuesto no puede ser más grande de 100.000.000",
+        "age-valid-error": "La edat no puede ser más grande de 150"
 }

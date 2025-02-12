@@ -87,7 +87,7 @@ export class FormComponent {
   }
 
   goToResults(): void {
-    if (this.isAgeNegative) {
+    if (this.isAgeNegative || this.isValidMaxAge) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -104,7 +104,7 @@ export class FormComponent {
   }
 
   areBudgetFieldsInvalid(): boolean {
-    return this.isMinBudgetNegative || this.isMaxBudgetNegative || this.isMaxBudgetSmallerThanMin;
+    return this.isMinBudgetNegative || this.isMaxBudgetNegative || this.isMaxBudgetSmallerThanMin || this.isValidMinBudget || this.isValidMaxBudget;
   }
 
   get isAgeNegative(): boolean {
@@ -123,4 +123,16 @@ export class FormComponent {
     return this.maxBudget !== null && this.maxBudget < this.minBudget;
   }
 
+  get isValidMinBudget(): boolean {
+    return this.minBudget !== null && this.minBudget > 100000000
+  }
+
+
+  get isValidMaxBudget(): boolean {
+    return this.maxBudget !== null && this.maxBudget > 100000000
+  }
+
+  get isValidMaxAge(): boolean {
+    return this.age !== null && this.age > 150
+  }
 }
