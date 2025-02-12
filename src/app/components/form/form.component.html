@@ -121,7 +121,10 @@
         </div>
 
         <div class="flex justify-center pt-2">
-                <app-main-button [buttontext]="t('generate_button')" (click)="goToResults()"></app-main-button>
+                <app-main-button [buttontext]="t('generate_button')" (click)="goToResults()"
+                        [disabled]="isMaxBudgetNegative || isMaxBudgetSmallerThanMin || isAgeNegative"
+                        [ngClass]="{ 'cursor-not-allowed opacity-50': isMinBudgetNegative || isMaxBudgetNegative || isMaxBudgetSmallerThanMin || isAgeNegative }">
+                </app-main-button>
         </div>
 
 </div>

@@ -11,4 +11,5 @@ import { heroArrowRight } from '@ng-icons/heroicons/outline';
 })
 export class MainButtonComponent {
   @Input() buttontext: string = "";
+  @Input() disabled: boolean = false;
 }
